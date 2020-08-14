@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class UserLoginRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the user is authorized to make this request.api.
      *
      * @return bool
      */

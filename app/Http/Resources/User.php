@@ -19,8 +19,8 @@ class User extends JsonResource
         // we want to retrieve custom fields
 
         return [
-            'email' => $request->email,
-            'name' => $request->name,
+            'email' => $this->email,
+            'name' => $this->name,
             'created_at' => $this->created_at,
         ];
     }
