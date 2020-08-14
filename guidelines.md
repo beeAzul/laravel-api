@@ -47,4 +47,8 @@ $ php artisan make:request UserRegisterRequest
 $ php artisan make:request UserLoginRequest
 </pre>
 
-8 - 
+8 - Creation of User and logout routes
+
+9 - Installation of Cors package:<br/>
+Docs : https://github.com/fruitcake/laravel-cors
+<pre>$ composer require fruitcake/laravel-cors</pre>
