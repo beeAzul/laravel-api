@@ -27,10 +27,24 @@ Implement the Tymon\JWTAuth\Contracts\JWTSubject contract on your User model, wh
 
 Edit config/auth.php to configure gards type and driver.
 
-6 - Creation of new Route and new Controller to the registration.
-php artisan make:controller AuthController
+6 - Creation of new Route and new Controller for the Registration and Login.<br>
+Controller:
+<pre>
+$ php artisan make:controller AuthController
+</pre>
 
-7 - Creation of Form Request for validation:
+Routes:
+<pre>
+// In routes/api.php file
+Route::post('/register', 'AuthController@register');
+Route::post('/login', 'AuthController@login');
+</pre>
+
+
+7 - Creation of UserRegistrerRequest and UserLoginRequest for Form Validation:
 <pre>
 $ php artisan make:request UserRegisterRequest
+$ php artisan make:request UserLoginRequest
 </pre>
+
+8 - 
