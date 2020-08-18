@@ -78,7 +78,8 @@ We create a group of Routes because all Routes start by the topics prefix
 see routes\api.php   
 
 ##### e Creation of Posts and Topics controllers
-
+see app/Http/Controllers/TopicController.php
+see app/Http/Controllers/PostController.php
 
 ##### f Use a Resource for Topics and Posts
 Resources are used to format response into json type.
@@ -87,7 +88,9 @@ $ php artisan make:resource Topic
 $ php artisan make:resource Post
 </pre>
 
-##### c
+##### Creation of Topic Request for validation
+We create a TopicCreateValidation to validate information from forms.
+
 ##### c
 ##### c
    

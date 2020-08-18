@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Topic as TopicResource;
+use App\Http\Requests\TopicCreateRequest; // For validation
 use App\Topic;
 use App\Post;
 
 class TopicController extends Controller
 {
-    public function store( Request $request) {
+    public function store( TopicCreateRequest $request) {
         $topic = new Topic;
         $topic->title = $request->title;
         $topic->user()->associate($request->user()); //  se assign a user coming from the request to the topic
