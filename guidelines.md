@@ -61,7 +61,7 @@ Docs : https://github.com/fruitcake/laravel-cors
     
     $ php artisan migrate:fresh
     </pre>
-##### b - Creation of Relationships
+##### b - Creation of models Relationships
 see app/Posts and app/Topics files:  
    - A topics belong to a User  
    - A Topics can have many Posts
@@ -69,8 +69,23 @@ see app/Posts and app/Topics files:
    - A Posts belong to a Topic
    
 ##### c Creation of Trait to order datas
-see app/Traits/Orderable.php file
+see app/Traits/Orderable.php file  
+to use it, import it in a model, see app/Topis.php
 
+
+##### d Creation of Routes to create/post/update/delete Posts and Topics
+We create a group of Routes because all Routes start by the topics prefix  
+see routes\api.php   
+
+##### e Creation of Posts and Topics controllers
+
+
+##### f Use a Resource for Topics and Posts
+Resources are used to format response into json type.
+<pre>
+$ php artisan make:resource Topic
+$ php artisan make:resource Post
+</pre>
 
 ##### c
 ##### c
