@@ -52,3 +52,29 @@ $ php artisan make:request UserLoginRequest
 9 - Installation of Cors package:<br/>
 Docs : https://github.com/fruitcake/laravel-cors
 <pre>$ composer require fruitcake/laravel-cors</pre>
+
+#### 10 - Making CRUD
+##### a - Creation of table Topics and Post  
+    <pre>
+    $ php artisan make:model Posts -m
+    $ php artisan make:model Topics -m
+    
+    $ php artisan migrate:fresh
+    </pre>
+##### b - Creation of Relationships
+see app/Posts and app/Topics files:  
+   - A topics belong to a User  
+   - A Topics can have many Posts
+   - A Post belong to a User
+   - A Posts belong to a Topic
+   
+##### c Creation of Trait to order datas
+see app/Traits/Orderable.php file
+
+
+##### c
+##### c
+##### c
+   
+
+

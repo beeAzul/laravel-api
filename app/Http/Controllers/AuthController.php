@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UserRegisterRequest; // Form Validation
 use App\Http\Requests\UserLoginRequest; // Form Validation
-use App\Http\Resources\User as UserResources;
+use App\Http\Resources\User as UserResource;
 
 class AuthController extends Controller
 {
@@ -23,9 +23,9 @@ class AuthController extends Controller
             return abort(401);
         }
 
-        // we format data with the UserResources class
+        // we format data with the UserResource class
         // we set additional meta with token
-        return (new UserResources($request->user()))->additional([
+        return (new UserResource($request->user()))->additional([
             'meta' => [
                 'token' => $token
             ]
@@ -38,23 +38,23 @@ class AuthController extends Controller
         {
             return response()->json([
                 'errors' => [
-                    'email' => 'User not found'
+                    'email' => ['User not found']
                 ]
-            ]);
+            ], 422);
         }
 
-        // we format data with the UserResources class
+        // we format data with the UserResource class
         // we set additional meta with token
-        return (new UserResources($request->user()))->additional([
+        return (new UserResource($request->user()))->additional([
             'meta' => [
-                'token' => $token
-            ]
+                'token' => $token,
+            ],
         ]);
     }
 
     public function user(Request $request)
     {
-        return new UserResources($request->user());
+        return new UserResource($request->user());
     }
 
     public function logout( Request $request )

@@ -17,10 +17,10 @@ class User extends JsonResource
 
         //return parent::toArray($request); We don't want to retrieve the entire object
         // we want to retrieve custom fields
-
         return [
-            'email' => $this->email,
+            'id' => $this->id,
             'name' => $this->name,
+            'email' => $this->email,
             'created_at' => $this->created_at,
         ];
     }
