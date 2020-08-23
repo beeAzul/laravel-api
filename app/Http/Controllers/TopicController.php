@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Resources\Topic as TopicResource;
 use App\Http\Requests\TopicCreateRequest; // For validation
+use App\Http\Requests\TopicUpdateRequest; // For validation
 use App\Topic;
 use App\Post;
 
@@ -41,6 +42,13 @@ class TopicController extends Controller
     }
 
     public function show(Topic $topic) {
+        return new TopicResource($topic);
+    }
+
+    public function update(TopicUpdateRequest $request, Topic $topic) {
+        $topic->title = $request->get('title', $topic->title);
+        $topic->save();
+
         return new TopicResource($topic);
     }
 }
