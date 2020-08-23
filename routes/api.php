@@ -24,4 +24,5 @@ Route::group(['prefix' => 'topics'], function() {
     Route::get('/', 'TopicController@index'); // Anyone can acceess this route
     Route::get('/{topic}', 'TopicController@show'); // Anyone can acceess this route
     Route::patch('/{topic}', 'TopicController@update')-> middleware('auth:api'); // Anyone can acceess this route
+    Route::delete('/{topic}', 'TopicController@destroy')-> middleware('auth:api'); // Anyone can acceess this route
 });
