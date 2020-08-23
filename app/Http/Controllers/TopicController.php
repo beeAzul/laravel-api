@@ -30,4 +30,13 @@ class TopicController extends Controller
         return new TopicResource($topic);
 
     }
+
+    public function index(Request $request)
+    {
+        // Now se can use latestFirst method cause we use it in the Topic model
+        $topics = Topic::latestFirst()->paginate(5);
+
+        // we don't use "new TopicResource" because we return many topics
+        return TopicResource::collection($topics);
+    }
 }

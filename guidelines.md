@@ -40,6 +40,8 @@ Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 </pre>
 
+<span style="color:red">/!\ NOTE : To see errors on PostMan or Insomnia, add 'Accept: application/json' Headers.</span>
+
 
 7 - Creation of UserRegistrerRequest and UserLoginRequest for Form Validation:
 <pre>
