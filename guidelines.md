@@ -93,7 +93,26 @@ $ php artisan make:resource Post
 ##### Creation of Topic Request for validation
 We create a TopicCreateValidation to validate information from forms.
 
-##### c
+##### Creation of Topic update Policy
+Policy will let only authorized user to update a Topic, the owner.
+
+<pre>
+$ php artisan make: policy TopicPolicy
+</pre>
+
+Register the policy in the authServiceProvider : 
+<pre>
+ /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+         ...
+         'App\Topic' => 'App\Policies\TopicPolicy',
+    ];
+</pre>
+
 ##### c
    
 

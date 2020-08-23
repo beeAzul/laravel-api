@@ -41,11 +41,14 @@ class TopicController extends Controller
         return TopicResource::collection($topics);
     }
 
-    public function show(Topic $topic) {
+    public function show(Topic $topic)
+    {
         return new TopicResource($topic);
     }
 
-    public function update(TopicUpdateRequest $request, Topic $topic) {
+    public function update(TopicUpdateRequest $request, Topic $topic)
+    {
+        $this->authorize('update', $topic);
         $topic->title = $request->get('title', $topic->title);
         $topic->save();
 
