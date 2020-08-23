@@ -39,4 +39,8 @@ class TopicController extends Controller
         // we don't use "new TopicResource" because we return many topics
         return TopicResource::collection($topics);
     }
+
+    public function show(Topic $topic) {
+        return new TopicResource($topic);
+    }
 }

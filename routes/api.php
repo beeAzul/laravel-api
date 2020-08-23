@@ -22,4 +22,5 @@ Route::post('/logout', 'AuthController@logout');
 Route::group(['prefix' => 'topics'], function() {
     Route::post('/', 'TopicController@store')-> middleware('auth:api'); // only logged user acceess this route
     Route::get('/', 'TopicController@index'); // Anyone can acceess this route
+    Route::get('/{topic}', 'TopicController@show'); // Anyone can acceess this route
 });
