@@ -32,7 +32,7 @@ class TopicController extends Controller
 
     }
 
-    public function index(Request $request)
+    public function index()
     {
         // Now se can use latestFirst method cause we use it in the Topic model
         $topics = Topic::latestFirst()->paginate(5);
@@ -48,6 +48,7 @@ class TopicController extends Controller
 
     public function update(TopicUpdateRequest $request, Topic $topic)
     {
+        // Refer to App/Policies/TopicPolicy::update()
         $this->authorize('update', $topic);
         $topic->title = $request->get('title', $topic->title);
         $topic->save();
@@ -57,6 +58,7 @@ class TopicController extends Controller
 
     public function destroy(Topic $topic)
     {
+        // Refer to App/Policies/TopicPolicy::destroy()
         $this->authorize('destroy', $topic);
         $topic->delete();
         return response(null, 204);

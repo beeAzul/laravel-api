@@ -25,4 +25,10 @@ Route::group(['prefix' => 'topics'], function() {
     Route::get('/{topic}', 'TopicController@show'); // Anyone can acceess this route
     Route::patch('/{topic}', 'TopicController@update')-> middleware('auth:api'); // Anyone can acceess this route
     Route::delete('/{topic}', 'TopicController@destroy')-> middleware('auth:api'); // Anyone can acceess this route
+    // Post route group : /topics/topic_id/posts
+    Route::group(['prefix' => '/{topic}/posts'], function() {
+        Route::post('/', 'PostController@store')->middleware('auth:api');
+        Route::patch('/{post}', 'PostController@update')->middleware('auth:api');
+        Route::delete('/{post}', 'PostController@destroy')->middleware('auth:api');
+    });
 });

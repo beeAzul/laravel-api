@@ -40,6 +40,16 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * This is a policy to test if Post is owned by the user
+     * @param Topic $topic
+     * @return bool
+     */
+    public function ownsPost(Post $post)
+    {
+        return $this->id === $post->user->id;
+    }
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
