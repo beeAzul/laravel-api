@@ -10,6 +10,14 @@ use App\Topic;
 
 class PostController extends Controller
 {
+
+
+    public function show(Topic $topic, Post $post)
+    {
+        return new PostResource($post);
+    }
+
+
     public function store(StorePostRequest $request, Topic $topic)
     {
         $post = new Post;
